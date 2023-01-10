@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+import { NavigationService } from 'src/app/services/in-app/navigation.service';
+
 @Component({
   selector: 'app-form-login-user',
   templateUrl: './form-login-user.component.html',
@@ -9,11 +11,15 @@ import { NgForm } from '@angular/forms';
 export class FormLoginUserComponent implements OnInit {
 
   onSubmit(login: NgForm) {
-    console.log(login.value);  // { first: '', last: '' }
-    console.log(login.valid);  // false
+    console.log(login.value);
+    console.log(login.valid);
+
+    this.navigation.successLogin()
   }
 
-  constructor() { }
+  constructor(
+    private navigation:NavigationService
+  ) { }
 
   ngOnInit(): void {
   }

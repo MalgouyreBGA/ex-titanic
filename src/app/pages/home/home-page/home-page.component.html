@@ -1,2 +1,15 @@
 <app-navbar></app-navbar>
 <p>home-page works!</p>
+
+<form #whichGraph="ngForm" (ngSubmit)="onSubmit(whichGraph)" novalidate>
+<!-- ng-model="selectedQuerry" -->
+    <select name="selectedQuerry" ngModel required>
+        <option [ngValue]="null" disabled>Select graph</option>
+        <option *ngFor="let querry of querryTypes" [ngValue]="querry">{{querry}}</option>
+    </select>
+
+    <button>Submit</button>
+  </form>
+
+  <p>Form value: {{ whichGraph.value | json }}</p>
+  <p>Form valid: {{ whichGraph.valid }}</p>
