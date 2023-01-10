@@ -1,1 +1,5 @@
 <p>login-page works!</p>
+<!---->
+<button (click)="changeForm()">change form</button>
+<app-form-login-user *ngIf="formSwitch"></app-form-login-user>
+<app-form-new-user *ngIf="!formSwitch"></app-form-new-user>

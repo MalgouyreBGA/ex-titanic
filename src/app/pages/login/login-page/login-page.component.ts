@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  formSwitch:boolean = true
+  changeForm(){
+    this.formSwitch ? this.formSwitch = false : this.formSwitch = true
+  }
+
+  //ngForm:any
+  //ngModel:any
+
+  constructor(
+    //private form:NgForm
+  ) { }
 
   ngOnInit(): void {
   }
