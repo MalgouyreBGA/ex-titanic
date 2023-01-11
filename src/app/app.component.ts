@@ -20,5 +20,7 @@ export class AppComponent {
   constructor(
     private router:Router,
     private csv:CsvService,
-  ){}
+  ){
+    this.router.navigate([''])
+  }
 }

@@ -4,8 +4,8 @@ import { LoginPageComponent } from './pages/login/login-page/login-page.componen
 import { HomePageComponent } from './pages/home/home-page/home-page.component';
 
 const routes: Routes = [
-  { path: '', component: LoginPageComponent },
-  { path: 'home', component: HomePageComponent },
+  { path: '', pathMatch: 'full', component: LoginPageComponent },
+  { path: 'home', pathMatch: 'full', component: HomePageComponent },
 ];
 
 @NgModule({

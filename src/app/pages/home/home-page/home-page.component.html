@@ -7,9 +7,11 @@
         <option [ngValue]="null" disabled>Select graph</option>
         <option *ngFor="let querry of querryTypes" [ngValue]="querry">{{querry}}</option>
     </select>
-
     <button>Submit</button>
   </form>
-
   <p>Form value: {{ whichGraph.value | json }}</p>
   <p>Form valid: {{ whichGraph.valid }}</p>
+
+  <app-graph-age *ngIf="whichGraph.value.selectedQuerry === 'Age'"></app-graph-age>
+  <app-graph-classe *ngIf="whichGraph.value.selectedQuerry === 'Classe'"></app-graph-classe>
+  <app-graph-sexe *ngIf="whichGraph.value.selectedQuerry === 'Sexe'"></app-graph-sexe>
