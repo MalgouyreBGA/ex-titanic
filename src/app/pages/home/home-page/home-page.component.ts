@@ -8,7 +8,8 @@ import { NgForm } from '@angular/forms';
 })
 export class HomePageComponent implements OnInit {
 
-  querryTypes = ['age', 'sexe', 'classe des billets']
+  querryTypes = ['Age', 'Sexe', 'Classe']
+  // age tranche de 10
 
   onSubmit(whichGraph: NgForm) {
     console.log(whichGraph.value); 
