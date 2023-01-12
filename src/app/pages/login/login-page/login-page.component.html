@@ -1,5 +1,9 @@
-<p>login-page works!</p>
-<!---->
-<button (click)="changeForm()">change form</button>
-<app-form-login-user *ngIf="formSwitch"></app-form-login-user>
-<app-form-new-user *ngIf="!formSwitch"></app-form-new-user>
+<div id="form">
+    <app-form-login-user *ngIf="formSwitch"></app-form-login-user>
+    <app-form-new-user *ngIf="!formSwitch"></app-form-new-user>
+    <div style="display:flex; padding-top:15px;">
+        <p style="margin:0;">{{formSwitch ? "Pas encore inscrit " : "Retour "}} : </p>
+        <button (click)="changeForm()">{{formSwitch ? "S'inscrire" : "login"}}</button>
+    </div>
+</div>
+

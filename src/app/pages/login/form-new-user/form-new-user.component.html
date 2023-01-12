@@ -1,23 +1,23 @@
-<p>form-new-user works!</p>
-
+<p>S'inscrire</p>
 <form #newUser="ngForm" (ngSubmit)="onSubmit(newUser)" novalidate>
     <tr>
         <td>username</td>
         <td><input name="username" ngModel required #username="ngModel"></td>
     </tr>
     <tr>
-        <td>password</td>
+        <td>password N°1</td>
         <td><input name="password1" ngModel required></td>
     </tr>
     <tr>
-        <td>password</td>
+        <td>password N°2</td>
         <td><input name="password2" ngModel required></td>
     </tr>
     <p *ngIf="notSamePassword">Attention : pas le même mot de passe</p>
-    <button>Submit</button>
-  </form>
-
+    <button style="margin-top: 10px;">S'inscrire</button>
+</form>
+<!--
   <p>First name value: {{ username.value }}</p>
   <p>First name valid: {{ username.valid }}</p>
   <p>Form value: {{ newUser.value | json }}</p>
   <p>Form valid: {{ newUser.valid }}</p>
+-->

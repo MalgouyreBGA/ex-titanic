@@ -1,4 +1,4 @@
-<p>form-login-user works!</p>
+<p>LOGIN</p>
 
 <form #login="ngForm" (ngSubmit)="onSubmit(login)" novalidate>
     <tr>
@@ -10,10 +10,5 @@
         <td><input type="password" name="password" ngModel required></td>
     </tr>
     <tr>
-    <button>Submit</button>
-  </form>
-
-  <p>First name value: {{ username.value }}</p>
-  <p>First name valid: {{ username.valid }}</p>
-  <p>Form value: {{ login.value | json }}</p>
-  <p>Form valid: {{ login.valid }}</p>
+    <button style="margin-top: 10px;">Se connecter</button>
+</form>

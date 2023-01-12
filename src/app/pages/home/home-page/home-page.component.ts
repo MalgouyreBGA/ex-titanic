@@ -11,7 +11,12 @@ export class HomePageComponent implements OnInit {
   querryTypes = ['Age', 'Sexe', 'Classe']
   // age tranche de 10
 
-  onSubmit(whichGraph: NgForm) {
+  graphType:'simple'|'mixed'|undefined
+
+  onSubmit(whichGraph: NgForm, type:'simple'|'mixed') {
+
+    this.graphType = type
+
     console.log(whichGraph.value); 
     console.log(whichGraph.valid);
   }
