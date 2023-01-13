@@ -5,9 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { NgxCsvParserModule } from 'ngx-csv-parser';
-
 //import { FormsModule }   from '@angular/forms';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { LoginModule } from './pages/login/login.module';
 import { HomeModule } from './pages/home/home.module';
@@ -22,7 +23,8 @@ import { HomeModule } from './pages/home/home.module';
     AppRoutingModule,
     //FormsModule,
 
-    NgxCsvParserModule,
+    BrowserAnimationsModule,
+    //NgxChartsModule,
 
     // components modules
     LoginModule,
@@ -30,6 +32,7 @@ import { HomeModule } from './pages/home/home.module';
   ],
   providers: [
     //FormsModule
+    //NgxChartsModule,
   ],
   bootstrap: [AppComponent]
 })

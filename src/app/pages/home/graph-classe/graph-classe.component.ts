@@ -33,7 +33,6 @@ Ticket: "A/5 21171"
     data.forEach(e => {
       obj[`${e.Pclass}`] ? obj[`${e.Pclass}`] += 1 : Object.assign(obj, { [`${e.Pclass}`]: 1 })
     })
-
     this.graphKeys = Object.keys(obj)
     return obj
   }

@@ -1,5 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 import { CsvService } from 'src/app/services/outside-app/csv.service';
 
 @Component({
@@ -41,7 +45,6 @@ export class GraphAgeComponent implements OnInit, OnDestroy {
       [this.graphKeys[10]]: data.filter((e:any)=> e.Age > 101 && e.Age <= 110).length,
       [this.graphKeys[11]]: data.filter((e:any)=> e.Age > 111 && e.Age <= 120).length,
     }
-    console.log(tempData)
     return tempData
   }
 

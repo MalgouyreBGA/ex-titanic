@@ -18,7 +18,6 @@ export class GraphSexeComponent implements OnInit, OnDestroy {
       male: data.filter((e:any)=>e.Sex === "male").length,
       female: data.filter((e:any)=>e.Sex === "female").length
     }
-
     return tempData
   }
 

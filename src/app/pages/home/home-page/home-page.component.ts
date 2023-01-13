@@ -11,15 +11,19 @@ export class HomePageComponent implements OnInit {
   querryTypes = ['Age', 'Sexe', 'Classe']
   // age tranche de 10
 
+  switch:boolean = true
   graphType:'simple'|'mixed'|undefined
 
+  whichGraphComp:any
+
   onSubmit(whichGraph: NgForm, type:'simple'|'mixed') {
-
-    this.graphType = type
-
-    console.log(whichGraph.value); 
-    console.log(whichGraph.valid);
+    if (whichGraph.value.selectedQuerry != ""){
+      this.whichGraphComp = whichGraph.value
+      this.graphType = type
+      this.switch = !this.switch
+    }
   }
+  onReset(){this.switch = !this.switch}
 
   constructor() { }
 

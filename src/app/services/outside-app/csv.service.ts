@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
-import { NgxCsvParser, NgxCSVParserError } from 'ngx-csv-parser';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -37,7 +35,17 @@ export class CsvService {
     let after = /.+"/g
     let useless = /"/g
 
+    let inCutString:boolean = false
+
     array.forEach((str)=>{
+      if (!inCutString){
+        if (str.match(before)){ inCutString = !inCutString }
+        !isNaN(Number(str)) ? arrayTemp.push(Number(str)) : arrayTemp.push(str)
+      } else {
+        if (str.match(after)) { inCutString = !inCutString }
+        arrayTemp[arrayTemp.length-1] = (arrayTemp[arrayTemp.length-1] + "," + str).replace(useless, "")
+      }
+/*
       if (!str.match(after) && !str.match(before)){
         !isNaN(Number(str)) ? arrayTemp.push(Number(str)) : arrayTemp.push(str)
       } else if (str.match(before)) {
@@ -45,6 +53,7 @@ export class CsvService {
       } else if (str.match(after)) {
         arrayTemp[arrayTemp.length-1] = (arrayTemp[arrayTemp.length-1] + "," + str.replace(useless, ""))
       }
+*/      
     })
     return arrayTemp
   }
@@ -69,7 +78,6 @@ export class CsvService {
 
   constructor(
     private http:HttpClient,
-    private ngxCsvParser: NgxCsvParser,
     private router:Router,
   ) {
   }

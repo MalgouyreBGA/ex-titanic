@@ -1,9 +1,9 @@
 <app-navbar></app-navbar>
 <div style="display:flex; column-gap: 15px;">
-    <div>
-        <p>Simple graphique</p>
+    <div *ngIf="this.switch">
+        <p>graphique</p>
 
-        <form #whichGraph="ngForm" (ngSubmit)="onSubmit(whichGraph, 'simple')" novalidate
+        <form #whichGraph="ngForm" (ngSubmit)="onSubmit(whichGraph, 'simple')"
         style="display:flex;flex-direction:column;width: min-content;">
             <select name="selectedQuerry" ngModel required>
                 <option [ngValue]="null" disabled>Select graph</option>
@@ -11,11 +11,12 @@
             </select>
             <button>Submit</button>
         </form>
-        <p>Form value: {{ whichGraph.value | json }}</p>
-        <p>Form valid: {{ whichGraph.valid }}</p>
-
+        <!--
+            <p>Form value: {{ whichGraph.value | json }}</p>
+            <p>Form valid: {{ whichGraph.valid }}</p>    
+        -->
+        <!--
         <p>mixed graphique</p>
-
         <form #mixedGraph="ngForm" (ngSubmit)="onSubmit(mixedGraph, 'mixed')" novalidate>
             <tr *ngFor="let querry of querryTypes">
                 <td >
@@ -27,19 +28,20 @@
             </tr>
             <button>Submit</button>
         </form>
-
-        <p>Form value: {{ mixedGraph.value | json }}</p>
-        <p>Form valid: {{ mixedGraph.valid }}</p>
+        -->
     </div>
-    <div>
+    <div *ngIf="!this.switch">
         <p>GRAPH</p>
+        <button (click)="onReset()">Reset</button>
         <div *ngIf="graphType === 'simple' ">
-            <app-graph-age *ngIf="whichGraph.value.selectedQuerry === 'Age'"></app-graph-age>
-            <app-graph-classe *ngIf="whichGraph.value.selectedQuerry === 'Classe'"></app-graph-classe>
-            <app-graph-sexe *ngIf="whichGraph.value.selectedQuerry === 'Sexe'"></app-graph-sexe>
+            <app-graph-age *ngIf="whichGraphComp.selectedQuerry === 'Age'"></app-graph-age>
+            <app-graph-classe *ngIf="whichGraphComp.selectedQuerry === 'Classe'"></app-graph-classe>
+            <app-graph-sexe *ngIf="whichGraphComp.selectedQuerry === 'Sexe'"></app-graph-sexe>
         </div>
+        <!--
         <div *ngIf="graphType === 'mixed' ">
 
-        </div>
+        </div> 
+        -->
     </div>
 </div>
