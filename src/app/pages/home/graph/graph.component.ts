@@ -148,10 +148,9 @@ reset(){
 
   ngOnInit(): void {
     this.download = [
-
-      this.nav.graphType.subscribe((data:''|'Age'|'Sexe'|'Classe') => this.currentType=data),
-
-      this.csv.csvContent.subscribe((data:any[])=> this.chart = this.select(data, this.nav.graphType.value))
+      this.nav.graphType.subscribe((data:''|'Age'|'Sexe'|'Classe') => {
+        this.chart = this.select(this.csv.csvContent.value, data)
+      }),
     ]
   }
   ngOnDestroy(): void {
