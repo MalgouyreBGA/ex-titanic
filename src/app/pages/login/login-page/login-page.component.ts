@@ -13,14 +13,11 @@ export class LoginPageComponent implements OnInit {
     this.formSwitch ? this.formSwitch = false : this.formSwitch = true
   }
 
-  //ngForm:any
-  //ngModel:any
-
   constructor(
-    //private form:NgForm
   ) { }
 
   ngOnInit(): void {
+    
   }
 
 }

@@ -1,6 +1,7 @@
 <p>LOGIN</p>
 
 <form #login="ngForm" (ngSubmit)="onSubmit(login)" novalidate>
+    <p *ngIf="error">ATTENTION : username et/ou password invalide</p>
     <tr>
         <td>username</td>
         <td><input name="username" ngModel required #username="ngModel"></td>
