@@ -32,6 +32,7 @@
         <p>Form valid: {{ mixedGraph.valid }}</p>
     </div>
     <div>
+        <p>GRAPH</p>
         <div *ngIf="graphType === 'simple' ">
             <app-graph-age *ngIf="whichGraph.value.selectedQuerry === 'Age'"></app-graph-age>
             <app-graph-classe *ngIf="whichGraph.value.selectedQuerry === 'Classe'"></app-graph-classe>
