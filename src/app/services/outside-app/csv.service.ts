@@ -35,7 +35,7 @@ export class CsvService {
     let after = /.+"/g
     let useless = /"/g
 
-    let inCutString:boolean = false
+    let inCutString:boolean = false //split(",") also cut string with "," inside
 
     array.forEach((str)=>{
       if (!inCutString){

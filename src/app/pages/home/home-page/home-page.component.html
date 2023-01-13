@@ -1,15 +1,15 @@
 <app-navbar></app-navbar>
 <div style="display:flex; column-gap: 15px;">
-    <div *ngIf="this.switch">
-        <p>graphique</p>
+    <div *ngIf="currentType===''">
+        <p>Choix du graphique</p>
 
         <form #whichGraph="ngForm" (ngSubmit)="onSubmit(whichGraph, 'simple')"
         style="display:flex;flex-direction:column;width: min-content;">
-            <select name="selectedQuerry" ngModel required>
+            <select name="selectedQuerry" ngModel required >
                 <option [ngValue]="null" disabled>Select graph</option>
                 <option *ngFor="let querry of querryTypes" [ngValue]="querry">{{querry}}</option>
             </select>
-            <button>Submit</button>
+        <button>Submit</button>
         </form>
         <!--
             <p>Form value: {{ whichGraph.value | json }}</p>
@@ -27,21 +27,8 @@
                 </td>
             </tr>
             <button>Submit</button>
-        </form>
+        </form>*ngIf="!this.switch"
         -->
     </div>
-    <div *ngIf="!this.switch">
-        <p>GRAPH</p>
-        <button (click)="onReset()">Reset</button>
-        <div *ngIf="graphType === 'simple' ">
-            <app-graph-age *ngIf="whichGraphComp.selectedQuerry === 'Age'"></app-graph-age>
-            <app-graph-classe *ngIf="whichGraphComp.selectedQuerry === 'Classe'"></app-graph-classe>
-            <app-graph-sexe *ngIf="whichGraphComp.selectedQuerry === 'Sexe'"></app-graph-sexe>
-        </div>
-        <!--
-        <div *ngIf="graphType === 'mixed' ">
-
-        </div> 
-        -->
-    </div>
+    <app-graph *ngIf="currentType!=''"></app-graph>
 </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { NavigationService } from 'src/app/services/in-app/navigation.service';
 
 @Component({
   selector: 'app-home-page',
@@ -8,26 +10,31 @@ import { NgForm } from '@angular/forms';
 })
 export class HomePageComponent implements OnInit {
 
-  querryTypes = ['Age', 'Sexe', 'Classe']
-  // age tranche de 10
+  currentType:''|'Age'|'Sexe'|'Classe' = ""
+  download:Subscription[] = []
 
-  switch:boolean = true
+// --------------------------------------
+
+  querryTypes = ['Age', 'Sexe', 'Classe']
+
   graphType:'simple'|'mixed'|undefined
 
-  whichGraphComp:any
-
-  onSubmit(whichGraph: NgForm, type:'simple'|'mixed') {
+  async onSubmit(whichGraph: NgForm, type:'simple'|'mixed') {
+    console.log(whichGraph.value.selectedQuerry)
     if (whichGraph.value.selectedQuerry != ""){
-      this.whichGraphComp = whichGraph.value
+      this.nav.graphchange(whichGraph.value.selectedQuerry)
       this.graphType = type
-      this.switch = !this.switch
     }
   }
-  onReset(){this.switch = !this.switch}
 
-  constructor() { }
+  constructor(
+    private nav:NavigationService,
+  ) { }
 
   ngOnInit(): void {
+    this.download=[
+      this.nav.graphType.subscribe((data:''|'Age'|'Sexe'|'Classe') => this.currentType=data),
+    ]
   }
 
 }

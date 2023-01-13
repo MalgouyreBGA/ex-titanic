@@ -9,9 +9,11 @@ import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
+import {ChartModule} from 'primeng/chart';
 
 import { LoginModule } from './pages/login/login.module';
 import { HomeModule } from './pages/home/home.module';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { HomeModule } from './pages/home/home.module';
 
     BrowserAnimationsModule,
     //NgxChartsModule,
+    ChartModule,
 
     // components modules
     LoginModule,
@@ -33,6 +36,7 @@ import { HomeModule } from './pages/home/home.module';
   providers: [
     //FormsModule
     //NgxChartsModule,
+    ChartModule,
   ],
   bootstrap: [AppComponent]
 })

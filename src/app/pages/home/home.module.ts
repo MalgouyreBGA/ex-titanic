@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { GraphAgeComponent } from './graph-age/graph-age.component';
 import { GraphSexeComponent } from './graph-sexe/graph-sexe.component';
 import { GraphClasseComponent } from './graph-classe/graph-classe.component';
+import { GraphComponent } from './graph/graph.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { GraphClasseComponent } from './graph-classe/graph-classe.component';
     GraphAgeComponent,
     GraphSexeComponent,
     GraphClasseComponent,
+    GraphComponent,
   ],
   imports: [
     CommonModule,
