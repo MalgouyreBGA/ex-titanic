@@ -122,6 +122,7 @@ export class GraphComponent implements OnInit {
 // select #########################################################
 
 select(data:any, type: '' | 'Age' | 'Sexe' | 'Classe' ){
+  this.currentType = type
   if (type ==='Age'){
     return this.ageGraphDataImport(data)
   }else if (type ==='Sexe'){
@@ -147,7 +148,9 @@ reset(){
 
   ngOnInit(): void {
     this.download = [
+
       this.nav.graphType.subscribe((data:''|'Age'|'Sexe'|'Classe') => this.currentType=data),
+
       this.csv.csvContent.subscribe((data:any[])=> this.chart = this.select(data, this.nav.graphType.value))
     ]
   }
